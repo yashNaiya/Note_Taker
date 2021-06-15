@@ -114,6 +114,7 @@ form button{
 }
 p{
     width: 300px;
+    min-height: 110px;
     height: 110px;
     border: none;
     overflow: hidden;
