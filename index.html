@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/abcac48681.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/side_a/style.css">
+    <title>noteTaker</title>
+</head>
+<body>
+    <div class="container">
+       <nav>
+           <div class="navEl">
+           <span >MyNotes</span>
+           <a href="#inputForm">home</a>
+        </div>
+        <div class="search">
+            <input type="text" id="search" placeholder="serach by word" autocomplete="off">
+            <i class="fas fa-search"></i>
+        </div>
+       </nav>
+       <form  class="inputForm" id="inputForm">
+           <label for="input">Note:</label>
+           <textarea name="input" id="input" cols="20" rows="3"></textarea>
+           <button id="formButton">Add</button>
+       </form>
+       <div class="notes" id="notes">
+       </div>
+    <script src="/side_a/script.js"></script>
+</body>
+</html>
