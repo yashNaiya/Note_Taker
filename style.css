@@ -117,7 +117,7 @@ p{
     min-height: 110px;
     height: 110px;
     border: none;
-    overflow: hidden;
+    overflow: auto;
     padding: 20px;
     background: #fff;
     border: 2px solid #000; 

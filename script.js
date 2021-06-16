@@ -59,60 +59,82 @@ function showNotes() {
     const noteBox = document.getElementById('notes');
     if (notesObj.length != 0)
         noteBox.innerHTML = html;
-    else
-        noteBox.innerHTML = `<h3>Nothing to show yet</h3>`
+    else {
+        noteBox.innerHTML = `<h3>Nothing to show yet</h3>`;
+    }
+
+    let noteCards = document.getElementsByClassName('note');
+
+    Array.from(noteCards).forEach(function (note){
+
+        let pera =note.getElementsByTagName('p')[0];
+        let view = note.querySelector('.view');
+        pera.scrollHeight;
+        if(pera.scrollHeight>150){
+            pera.style.overflow = 'hidden';
+            view.style.display = 'inline-block';
+        }
+        else{
+            view.style.display = 'none';
+        }
+        console.log( pera.scrollHeight);
+    })
+    
+    
 }
 
 const viewBtn = document.querySelectorAll('.view');
 
-viewBtn.forEach(btn=>{
+viewBtn.forEach(btn => {
 
-    btn.addEventListener('click', (e)=>{
+    btn.addEventListener('click', (e) => {
 
-        if(btn.innerHTML == 'View'){
+        if (btn.innerHTML == 'View') {
             const pera = btn.parentElement.childNodes[3];
             pera.style.height = 'auto';
             btn.innerHTML = 'Hide';
             console.log(btn.innerHTML);
         }
-        else{
+        else {
             const pera = btn.parentElement.childNodes[3];
             pera.style.height = '110px';
             btn.innerHTML = 'View';
         }
-        
+
     })
 })
 
-function deleteNote(index){
+function deleteNote(index) {
 
     let notes = localStorage.getItem("notes");
     if (notes == null) {
         notesObj = [];
-      } else {
+    } else {
         notesObj = JSON.parse(notes);
-      }
-    
-      notesObj.splice(index, 1);
-      localStorage.setItem("notes", JSON.stringify(notesObj));
-      showNotes();
+    }
+
+    notesObj.splice(index, 1);
+    localStorage.setItem("notes", JSON.stringify(notesObj));
+    showNotes();
 }
 
 let search = document.getElementById('search');
-search.addEventListener('input', ()=>{
+search.addEventListener('input', () => {
 
     let inputVal = search.value.toLowerCase();
     // console.log('Input event fired!', inputVal);
     let noteCards = document.getElementsByClassName('note');
     console.log(Array.from(noteCards));
-    Array.from(noteCards).forEach(function(element){
+    Array.from(noteCards).forEach(function (element) {
         let cardTxt = element.getElementsByTagName("p")[0].innerText;
-        if(cardTxt.includes(inputVal)){
+        if (cardTxt.includes(inputVal)) {
             element.style.display = "block";
         }
-        else{
+        else {
             element.style.display = "none";
         }
         // console.log(cardTxt);
     })
 })
+
+
